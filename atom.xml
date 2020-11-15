@@ -6,7 +6,7 @@
   <link href="http://xxynly.xyz/atom.xml" rel="self"/>
   
   <link href="http://xxynly.xyz/"/>
-  <updated>2020-11-15T04:49:13.192Z</updated>
+  <updated>2020-11-14T13:43:29.873Z</updated>
   <id>http://xxynly.xyz/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="http://xxynly.xyz/2020/11/15/test/"/>
-    <id>http://xxynly.xyz/2020/11/15/test/</id>
-    <published>2020-11-15T04:48:26.578Z</published>
-    <updated>2020-11-15T04:49:13.192Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><p>test<br>aaa</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;test&quot;&gt;&lt;a href=&quot;#test&quot; class=&quot;headerlink&quot; title=&quot;test&quot;&gt;&lt;/a&gt;test&lt;/h1&gt;&lt;p&gt;test&lt;br&gt;aaa&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
