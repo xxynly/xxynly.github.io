@@ -6,7 +6,7 @@
   <link href="http://xxynly.xyz/atom.xml" rel="self"/>
   
   <link href="http://xxynly.xyz/"/>
-  <updated>2020-11-24T11:37:33.933Z</updated>
+  <updated>2020-11-24T11:59:34.899Z</updated>
   <id>http://xxynly.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://xxynly.xyz/2020/11/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8B%E9%80%9A%E8%BF%87Windows-server-2008%E6%90%AD%E5%BB%BAweb%E7%BD%91%E7%AB%99%E3%80%81%E9%82%AE%E4%BB%B6%E3%80%81ftp%E5%B9%B6%E9%80%9A%E8%BF%87ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E8%BF%9B%E8%A1%8C%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/"/>
     <id>http://xxynly.xyz/2020/11/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8B%E9%80%9A%E8%BF%87Windows-server-2008%E6%90%AD%E5%BB%BAweb%E7%BD%91%E7%AB%99%E3%80%81%E9%82%AE%E4%BB%B6%E3%80%81ftp%E5%B9%B6%E9%80%9A%E8%BF%87ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E8%BF%9B%E8%A1%8C%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/</id>
     <published>2020-11-24T11:28:30.000Z</published>
-    <updated>2020-11-24T11:37:33.933Z</updated>
+    <updated>2020-11-24T11:59:34.899Z</updated>
     
     <content type="html"><![CDATA[<p>12345<br>上山打老虎</p>]]></content>
     
@@ -37,7 +37,13 @@
     <category term="计算机网络" scheme="http://xxynly.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="web, ftp, Ngrok内网穿透, email" scheme="http://xxynly.xyz/tags/web-ftp-Ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F-email/"/>
+    <category term="web" scheme="http://xxynly.xyz/tags/web/"/>
+    
+    <category term="ftp" scheme="http://xxynly.xyz/tags/ftp/"/>
+    
+    <category term="内网穿透" scheme="http://xxynly.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+    <category term="email" scheme="http://xxynly.xyz/tags/email/"/>
     
   </entry>
   

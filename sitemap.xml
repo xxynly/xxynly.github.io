@@ -53,7 +53,28 @@
 
   
   <url>
-    <loc>http://xxynly.xyz/tags/web-ftp-Ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F-email/</loc>
+    <loc>http://xxynly.xyz/tags/web/</loc>
+    <lastmod>2020-11-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://xxynly.xyz/tags/ftp/</loc>
+    <lastmod>2020-11-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://xxynly.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    <lastmod>2020-11-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://xxynly.xyz/tags/email/</loc>
     <lastmod>2020-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
