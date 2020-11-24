@@ -6,7 +6,7 @@
   <link href="http://xxynly.xyz/atom.xml" rel="self"/>
   
   <link href="http://xxynly.xyz/"/>
-  <updated>2020-11-14T13:43:29.873Z</updated>
+  <updated>2020-11-24T11:33:30.998Z</updated>
   <id>http://xxynly.xyz/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>敏感目录泄露</title>
+    <link href="http://xxynly.xyz/2020/11/15/%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95%E6%B3%84%E9%9C%B2/"/>
+    <id>http://xxynly.xyz/2020/11/15/%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95%E6%B3%84%E9%9C%B2/</id>
+    <published>2020-11-15T07:39:54.000Z</published>
+    <updated>2020-11-24T11:33:30.998Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
