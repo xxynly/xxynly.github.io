@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://xxynly.xyz/2020/12/23/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</loc>
-    
-    <lastmod>2020-12-23</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xxynly.xyz/2020/11/14/hello-world/</loc>
     
     <lastmod>2020-12-23</lastmod>
@@ -53,7 +46,7 @@
 
   <url>
     <loc>http://xxynly.xyz/</loc>
-    <lastmod>2020-12-23</lastmod>
+    <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -61,42 +54,28 @@
   
   <url>
     <loc>http://xxynly.xyz/tags/web/</loc>
-    <lastmod>2020-12-23</lastmod>
+    <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/tags/ftp/</loc>
-    <lastmod>2020-12-23</lastmod>
+    <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
-    <lastmod>2020-12-23</lastmod>
+    <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/tags/email/</loc>
-    <lastmod>2020-12-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://xxynly.xyz/tags/CTF/</loc>
-    <lastmod>2020-12-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://xxynly.xyz/tags/tools/</loc>
-    <lastmod>2020-12-23</lastmod>
+    <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -105,14 +84,7 @@
   
   <url>
     <loc>http://xxynly.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2020-12-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://xxynly.xyz/categories/%E6%B8%97%E9%80%8F/</loc>
-    <lastmod>2020-12-23</lastmod>
+    <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
