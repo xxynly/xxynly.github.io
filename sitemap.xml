@@ -72,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://xxynly.xyz/gallery/index.html</loc>
-    
-    <lastmod>2020-11-14</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xxynly.xyz/404.html</loc>
     
     <lastmod>2020-11-14</lastmod>
@@ -87,6 +80,13 @@
   
   <url>
     <loc>http://xxynly.xyz/tags/index.html</loc>
+    
+    <lastmod>2020-11-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xxynly.xyz/gallery/index.html</loc>
     
     <lastmod>2020-11-14</lastmod>
     
@@ -102,7 +102,7 @@
 
   <url>
     <loc>http://xxynly.xyz/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -110,70 +110,70 @@
   
   <url>
     <loc>http://xxynly.xyz/tags/web/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/tags/SQL/</loc>
-    <lastmod>2021-03-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://xxynly.xyz/tags/ftp/</loc>
-    <lastmod>2021-03-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://xxynly.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
-    <lastmod>2021-03-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://xxynly.xyz/tags/email/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/tags/linux/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/tags/nginx/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/tags/php/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/tags/mysql/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://xxynly.xyz/tags/ftp/</loc>
+    <lastmod>2021-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://xxynly.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    <lastmod>2021-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://xxynly.xyz/tags/email/</loc>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/tags/google/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -182,28 +182,28 @@
   
   <url>
     <loc>http://xxynly.xyz/categories/SQL/</loc>
-    <lastmod>2021-03-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://xxynly.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/categories/%E4%BF%A1%E5%AE%89%E4%B9%8B%E8%B7%AF/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://xxynly.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xxynly.xyz/categories/WEB%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2021-03-31</lastmod>
+    <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
