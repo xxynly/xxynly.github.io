@@ -3,11 +3,11 @@
   <title>小夏要努力呀</title>
   
   
-  <link href="http://19970310.xyz/atom.xml" rel="self"/>
+  <link href="http://blog.19970310.xyz/atom.xml" rel="self"/>
   
-  <link href="http://19970310.xyz/"/>
+  <link href="http://blog.19970310.xyz/"/>
   <updated>2021-03-31T07:44:32.326Z</updated>
-  <id>http://19970310.xyz/</id>
+  <id>http://blog.19970310.xyz/</id>
   
   <author>
     <name>xxynly</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>web一：web运行基础环境搭建</title>
-    <link href="http://19970310.xyz/2021/03/21/web%E8%BF%90%E8%A1%8C%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>http://19970310.xyz/2021/03/21/web%E8%BF%90%E8%A1%8C%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</id>
+    <link href="http://blog.19970310.xyz/2021/03/21/web%E8%BF%90%E8%A1%8C%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://blog.19970310.xyz/2021/03/21/web%E8%BF%90%E8%A1%8C%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</id>
     <published>2021-03-21T11:28:30.000Z</published>
     <updated>2021-03-31T07:44:32.326Z</updated>
     
@@ -33,25 +33,25 @@
     
     
     
-    <category term="信安之路" scheme="http://19970310.xyz/categories/%E4%BF%A1%E5%AE%89%E4%B9%8B%E8%B7%AF/"/>
+    <category term="信安之路" scheme="http://blog.19970310.xyz/categories/%E4%BF%A1%E5%AE%89%E4%B9%8B%E8%B7%AF/"/>
     
     
-    <category term="web" scheme="http://19970310.xyz/tags/web/"/>
+    <category term="web" scheme="http://blog.19970310.xyz/tags/web/"/>
     
-    <category term="linux" scheme="http://19970310.xyz/tags/linux/"/>
+    <category term="linux" scheme="http://blog.19970310.xyz/tags/linux/"/>
     
-    <category term="nginx" scheme="http://19970310.xyz/tags/nginx/"/>
+    <category term="nginx" scheme="http://blog.19970310.xyz/tags/nginx/"/>
     
-    <category term="php" scheme="http://19970310.xyz/tags/php/"/>
+    <category term="php" scheme="http://blog.19970310.xyz/tags/php/"/>
     
-    <category term="mysql" scheme="http://19970310.xyz/tags/mysql/"/>
+    <category term="mysql" scheme="http://blog.19970310.xyz/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>6.SQL注入(联合查询)</title>
-    <link href="http://19970310.xyz/2021/03/12/6.SQL%E6%B3%A8%E5%85%A5(%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2)/"/>
-    <id>http://19970310.xyz/2021/03/12/6.SQL%E6%B3%A8%E5%85%A5(%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2)/</id>
+    <link href="http://blog.19970310.xyz/2021/03/12/6.SQL%E6%B3%A8%E5%85%A5(%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2)/"/>
+    <id>http://blog.19970310.xyz/2021/03/12/6.SQL%E6%B3%A8%E5%85%A5(%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2)/</id>
     <published>2021-03-12T11:28:30.000Z</published>
     <updated>2021-03-31T08:11:09.240Z</updated>
     
@@ -66,19 +66,19 @@
     
     
     
-    <category term="SQL" scheme="http://19970310.xyz/categories/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/categories/SQL/"/>
     
     
-    <category term="web" scheme="http://19970310.xyz/tags/web/"/>
+    <category term="web" scheme="http://blog.19970310.xyz/tags/web/"/>
     
-    <category term="SQL" scheme="http://19970310.xyz/tags/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/tags/SQL/"/>
     
   </entry>
   
   <entry>
     <title>5.SQL注入(报错型)</title>
-    <link href="http://19970310.xyz/2021/03/11/5.SQL%E6%B3%A8%E5%85%A5(%E6%8A%A5%E9%94%99%E5%9E%8B)/"/>
-    <id>http://19970310.xyz/2021/03/11/5.SQL%E6%B3%A8%E5%85%A5(%E6%8A%A5%E9%94%99%E5%9E%8B)/</id>
+    <link href="http://blog.19970310.xyz/2021/03/11/5.SQL%E6%B3%A8%E5%85%A5(%E6%8A%A5%E9%94%99%E5%9E%8B)/"/>
+    <id>http://blog.19970310.xyz/2021/03/11/5.SQL%E6%B3%A8%E5%85%A5(%E6%8A%A5%E9%94%99%E5%9E%8B)/</id>
     <published>2021-03-11T11:28:30.000Z</published>
     <updated>2021-03-31T08:11:23.825Z</updated>
     
@@ -92,19 +92,19 @@
     
     
     
-    <category term="SQL" scheme="http://19970310.xyz/categories/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/categories/SQL/"/>
     
     
-    <category term="web" scheme="http://19970310.xyz/tags/web/"/>
+    <category term="web" scheme="http://blog.19970310.xyz/tags/web/"/>
     
-    <category term="SQL" scheme="http://19970310.xyz/tags/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/tags/SQL/"/>
     
   </entry>
   
   <entry>
     <title>4.SQL注入(布尔型)</title>
-    <link href="http://19970310.xyz/2021/03/10/4.SQL%E6%B3%A8%E5%85%A5(%E5%B8%83%E5%B0%94%E5%9E%8B)/"/>
-    <id>http://19970310.xyz/2021/03/10/4.SQL%E6%B3%A8%E5%85%A5(%E5%B8%83%E5%B0%94%E5%9E%8B)/</id>
+    <link href="http://blog.19970310.xyz/2021/03/10/4.SQL%E6%B3%A8%E5%85%A5(%E5%B8%83%E5%B0%94%E5%9E%8B)/"/>
+    <id>http://blog.19970310.xyz/2021/03/10/4.SQL%E6%B3%A8%E5%85%A5(%E5%B8%83%E5%B0%94%E5%9E%8B)/</id>
     <published>2021-03-10T11:28:30.000Z</published>
     <updated>2021-03-31T08:11:36.231Z</updated>
     
@@ -118,19 +118,19 @@
     
     
     
-    <category term="SQL" scheme="http://19970310.xyz/categories/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/categories/SQL/"/>
     
     
-    <category term="web" scheme="http://19970310.xyz/tags/web/"/>
+    <category term="web" scheme="http://blog.19970310.xyz/tags/web/"/>
     
-    <category term="SQL" scheme="http://19970310.xyz/tags/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/tags/SQL/"/>
     
   </entry>
   
   <entry>
     <title>3.SQL注入(搜索型)</title>
-    <link href="http://19970310.xyz/2021/03/09/3.SQL%E6%B3%A8%E5%85%A5(%E6%90%9C%E7%B4%A2%E5%9E%8B)/"/>
-    <id>http://19970310.xyz/2021/03/09/3.SQL%E6%B3%A8%E5%85%A5(%E6%90%9C%E7%B4%A2%E5%9E%8B)/</id>
+    <link href="http://blog.19970310.xyz/2021/03/09/3.SQL%E6%B3%A8%E5%85%A5(%E6%90%9C%E7%B4%A2%E5%9E%8B)/"/>
+    <id>http://blog.19970310.xyz/2021/03/09/3.SQL%E6%B3%A8%E5%85%A5(%E6%90%9C%E7%B4%A2%E5%9E%8B)/</id>
     <published>2021-03-09T11:28:30.000Z</published>
     <updated>2021-03-31T08:11:49.209Z</updated>
     
@@ -144,19 +144,19 @@
     
     
     
-    <category term="SQL" scheme="http://19970310.xyz/categories/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/categories/SQL/"/>
     
     
-    <category term="web" scheme="http://19970310.xyz/tags/web/"/>
+    <category term="web" scheme="http://blog.19970310.xyz/tags/web/"/>
     
-    <category term="SQL" scheme="http://19970310.xyz/tags/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/tags/SQL/"/>
     
   </entry>
   
   <entry>
     <title>2.SQL注入(字符型)</title>
-    <link href="http://19970310.xyz/2021/03/08/2.SQL%E6%B3%A8%E5%85%A5(%E5%AD%97%E7%AC%A6%E5%9E%8B)/"/>
-    <id>http://19970310.xyz/2021/03/08/2.SQL%E6%B3%A8%E5%85%A5(%E5%AD%97%E7%AC%A6%E5%9E%8B)/</id>
+    <link href="http://blog.19970310.xyz/2021/03/08/2.SQL%E6%B3%A8%E5%85%A5(%E5%AD%97%E7%AC%A6%E5%9E%8B)/"/>
+    <id>http://blog.19970310.xyz/2021/03/08/2.SQL%E6%B3%A8%E5%85%A5(%E5%AD%97%E7%AC%A6%E5%9E%8B)/</id>
     <published>2021-03-08T11:28:30.000Z</published>
     <updated>2021-03-31T08:12:06.775Z</updated>
     
@@ -170,19 +170,19 @@
     
     
     
-    <category term="SQL" scheme="http://19970310.xyz/categories/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/categories/SQL/"/>
     
     
-    <category term="web" scheme="http://19970310.xyz/tags/web/"/>
+    <category term="web" scheme="http://blog.19970310.xyz/tags/web/"/>
     
-    <category term="SQL" scheme="http://19970310.xyz/tags/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/tags/SQL/"/>
     
   </entry>
   
   <entry>
     <title>1.SQL注入（数字型）</title>
-    <link href="http://19970310.xyz/2021/03/07/1.SQL%E6%B3%A8%E5%85%A5(%E6%95%B0%E5%AD%97%E5%9E%8B)/"/>
-    <id>http://19970310.xyz/2021/03/07/1.SQL%E6%B3%A8%E5%85%A5(%E6%95%B0%E5%AD%97%E5%9E%8B)/</id>
+    <link href="http://blog.19970310.xyz/2021/03/07/1.SQL%E6%B3%A8%E5%85%A5(%E6%95%B0%E5%AD%97%E5%9E%8B)/"/>
+    <id>http://blog.19970310.xyz/2021/03/07/1.SQL%E6%B3%A8%E5%85%A5(%E6%95%B0%E5%AD%97%E5%9E%8B)/</id>
     <published>2021-03-07T11:28:30.000Z</published>
     <updated>2021-03-31T08:12:09.715Z</updated>
     
@@ -196,19 +196,19 @@
     
     
     
-    <category term="SQL" scheme="http://19970310.xyz/categories/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/categories/SQL/"/>
     
     
-    <category term="web" scheme="http://19970310.xyz/tags/web/"/>
+    <category term="web" scheme="http://blog.19970310.xyz/tags/web/"/>
     
-    <category term="SQL" scheme="http://19970310.xyz/tags/SQL/"/>
+    <category term="SQL" scheme="http://blog.19970310.xyz/tags/SQL/"/>
     
   </entry>
   
   <entry>
     <title>google hack 语法</title>
-    <link href="http://19970310.xyz/2021/03/05/Google-hack%E8%AF%AD%E6%B3%95/"/>
-    <id>http://19970310.xyz/2021/03/05/Google-hack%E8%AF%AD%E6%B3%95/</id>
+    <link href="http://blog.19970310.xyz/2021/03/05/Google-hack%E8%AF%AD%E6%B3%95/"/>
+    <id>http://blog.19970310.xyz/2021/03/05/Google-hack%E8%AF%AD%E6%B3%95/</id>
     <published>2021-03-05T11:28:30.000Z</published>
     <updated>2021-03-31T07:45:56.378Z</updated>
     
@@ -222,19 +222,19 @@
     
     
     
-    <category term="WEB安全" scheme="http://19970310.xyz/categories/WEB%E5%AE%89%E5%85%A8/"/>
+    <category term="WEB安全" scheme="http://blog.19970310.xyz/categories/WEB%E5%AE%89%E5%85%A8/"/>
     
     
-    <category term="web" scheme="http://19970310.xyz/tags/web/"/>
+    <category term="web" scheme="http://blog.19970310.xyz/tags/web/"/>
     
-    <category term="google" scheme="http://19970310.xyz/tags/google/"/>
+    <category term="google" scheme="http://blog.19970310.xyz/tags/google/"/>
     
   </entry>
   
   <entry>
     <title>虚拟机下通过Windows server 2008搭建web网站、邮件、ftp并通过Ngrok内网穿透进行外网访问</title>
-    <link href="http://19970310.xyz/2020/11/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8B%E9%80%9A%E8%BF%87Windows-server-2008%E6%90%AD%E5%BB%BAweb%E7%BD%91%E7%AB%99%E3%80%81%E9%82%AE%E4%BB%B6%E3%80%81ftp%E5%B9%B6%E9%80%9A%E8%BF%87ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E8%BF%9B%E8%A1%8C%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/"/>
-    <id>http://19970310.xyz/2020/11/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8B%E9%80%9A%E8%BF%87Windows-server-2008%E6%90%AD%E5%BB%BAweb%E7%BD%91%E7%AB%99%E3%80%81%E9%82%AE%E4%BB%B6%E3%80%81ftp%E5%B9%B6%E9%80%9A%E8%BF%87ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E8%BF%9B%E8%A1%8C%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/</id>
+    <link href="http://blog.19970310.xyz/2020/11/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8B%E9%80%9A%E8%BF%87Windows-server-2008%E6%90%AD%E5%BB%BAweb%E7%BD%91%E7%AB%99%E3%80%81%E9%82%AE%E4%BB%B6%E3%80%81ftp%E5%B9%B6%E9%80%9A%E8%BF%87ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E8%BF%9B%E8%A1%8C%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/"/>
+    <id>http://blog.19970310.xyz/2020/11/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8B%E9%80%9A%E8%BF%87Windows-server-2008%E6%90%AD%E5%BB%BAweb%E7%BD%91%E7%AB%99%E3%80%81%E9%82%AE%E4%BB%B6%E3%80%81ftp%E5%B9%B6%E9%80%9A%E8%BF%87ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E8%BF%9B%E8%A1%8C%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/</id>
     <published>2020-11-24T11:28:30.000Z</published>
     <updated>2021-03-21T15:46:56.023Z</updated>
     
@@ -249,23 +249,23 @@
     
     
     
-    <category term="计算机网络" scheme="http://19970310.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="http://blog.19970310.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="web" scheme="http://19970310.xyz/tags/web/"/>
+    <category term="web" scheme="http://blog.19970310.xyz/tags/web/"/>
     
-    <category term="ftp" scheme="http://19970310.xyz/tags/ftp/"/>
+    <category term="ftp" scheme="http://blog.19970310.xyz/tags/ftp/"/>
     
-    <category term="内网穿透" scheme="http://19970310.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    <category term="内网穿透" scheme="http://blog.19970310.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
     
-    <category term="email" scheme="http://19970310.xyz/tags/email/"/>
+    <category term="email" scheme="http://blog.19970310.xyz/tags/email/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://19970310.xyz/2020/11/14/hello-world/"/>
-    <id>http://19970310.xyz/2020/11/14/hello-world/</id>
+    <link href="http://blog.19970310.xyz/2020/11/14/hello-world/"/>
+    <id>http://blog.19970310.xyz/2020/11/14/hello-world/</id>
     <published>2020-11-14T13:54:08.000Z</published>
     <updated>2020-12-23T14:41:45.978Z</updated>
     
