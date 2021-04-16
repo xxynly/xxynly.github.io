@@ -72,14 +72,7 @@
   </url>
   
   <url>
-    <loc>http://blog.19970310.xyz/404.html</loc>
-    
-    <lastmod>2020-11-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.19970310.xyz/categories/index.html</loc>
+    <loc>http://blog.19970310.xyz/gallery/index.html</loc>
     
     <lastmod>2020-11-14</lastmod>
     
@@ -93,7 +86,14 @@
   </url>
   
   <url>
-    <loc>http://blog.19970310.xyz/gallery/index.html</loc>
+    <loc>http://blog.19970310.xyz/404.html</loc>
+    
+    <lastmod>2020-11-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.19970310.xyz/categories/index.html</loc>
     
     <lastmod>2020-11-14</lastmod>
     
