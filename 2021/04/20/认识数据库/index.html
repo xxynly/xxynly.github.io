@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="认识数据库"><meta name="keywords" content="mysql"><meta name="author" content="xxynly"><meta name="copyright" content="xxynly"><title>认识数据库 | 小夏要努力呀</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.2.0'
+} </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="小夏要努力呀" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#description-%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">description: 学习数据库的基本使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3-%E8%AE%A4%E8%AF%86%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number"></span> <span class="toc-text">第二关 认识数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">关系型数据库和非关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.1.</span> <span class="toc-text">关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%BA%E8%B0%83ACID%E8%A7%84%E5%88%99"><span class="toc-number">1.1.1.</span> <span class="toc-text">关系型数据库强调ACID规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.</span> <span class="toc-text">非关系型数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.</span> <span class="toc-text">数据库分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.3.1.</span> <span class="toc-text">常用的关系型数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.3.2.</span> <span class="toc-text">常用的非关系型数据库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL"><span class="toc-number">2.</span> <span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.1.</span> <span class="toc-text">数据库的连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.2.</span> <span class="toc-text">操作数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E6%95%B0"><span class="toc-number">2.3.1.</span> <span class="toc-text">整数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">2.3.2.</span> <span class="toc-text">浮点数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.3.3.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4"><span class="toc-number">2.3.4.</span> <span class="toc-text">日期和时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0"><span class="toc-number">2.3.5.</span> <span class="toc-text">定点数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.6.</span> <span class="toc-text">其他数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">2.3.7.</span> <span class="toc-text">数据类型的属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7"><span class="toc-number">2.4.</span> <span class="toc-text">字段属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">2.5.</span> <span class="toc-text">数据表的操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%97%E7%9A%84%E7%BC%96%E8%BE%91"><span class="toc-number">2.6.</span> <span class="toc-text">数据列的编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E7%BC%96%E8%BE%91"><span class="toc-number">2.7.</span> <span class="toc-text">数据表的编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.8.</span> <span class="toc-text">查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E7%9A%84select-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.8.1.</span> <span class="toc-text">所有的select 关键字 </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#where-%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.8.2.</span> <span class="toc-text">where 条件 </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#distinct-%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%AE%B0%E5%BD%95"><span class="toc-number">2.8.3.</span> <span class="toc-text">distinct 去除重复记录 </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%AD%97%E6%AE%B5"><span class="toc-number">2.8.4.</span> <span class="toc-text">指定字段 </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E5%88%AB%E5%90%8D"><span class="toc-number">2.8.5.</span> <span class="toc-text">取别名 </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#group-by"><span class="toc-number">2.8.6.</span> <span class="toc-text">group by</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#having"><span class="toc-number">2.8.7.</span> <span class="toc-text">having </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#limit"><span class="toc-number">2.8.8.</span> <span class="toc-text">limit </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.8.9.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.8.10.</span> <span class="toc-text">多表查询</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%93%8D"><span class="toc-number">3.</span> <span class="toc-text">实操</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://i.loli.net/2020/11/15/FaeblZuW5LGvnfd.jpg"></div><div class="author-info__name text-center">xxynly</div><div class="author-info__description text-center">保持热爱，奔赴山海</div><div class="follow-button"><a target="_blank" rel="noopener" href="https://github.com/xxynly">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">11</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">10</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">4</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://19970310.xyz/# 名称：URL">nav</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://book.19970310.xyz/">gitbook</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://i.loli.net/2021/04/15/2kp5IPJ71sMSTqu.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">小夏要努力呀</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">认识数据库</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-04-20</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E4%BF%A1%E5%AE%89%E4%B9%8B%E8%B7%AF/">信安之路</a><span class="post-meta__separator">|</span><i class="fa fa-comment-o post-meta__icon" aria-hidden="true"></i><a href="/2021/04/20/%E8%AE%A4%E8%AF%86%E6%95%B0%E6%8D%AE%E5%BA%93/#disqus_thread"><span class="disqus-comment-count" data-disqus-identifier="2021/04/20/认识数据库/"></span></a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2.4k</span><span class="post-meta__separator">|</span><span>阅读时长: 8 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><hr>
+<h2 id="description-学习数据库的基本使用"><a href="#description-学习数据库的基本使用" class="headerlink" title="description: 学习数据库的基本使用"></a>description: 学习数据库的基本使用</h2><h1 id="第二关-认识数据库"><a href="#第二关-认识数据库" class="headerlink" title="第二关 认识数据库"></a>第二关 认识数据库</h1><h2 id="关系型数据库和非关系型数据库"><a href="#关系型数据库和非关系型数据库" class="headerlink" title="关系型数据库和非关系型数据库"></a>关系型数据库和非关系型数据库</h2><h3 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h3><ul>
+<li>采用了关系模型来组织数据的数据库</li>
+<li>以行和列的形式存储数据</li>
+<li>行和列被称为表</li>
+<li>一组表组成数据库</li>
+</ul>
+<h4 id="关系型数据库强调ACID规则"><a href="#关系型数据库强调ACID规则" class="headerlink" title="关系型数据库强调ACID规则"></a>关系型数据库强调ACID规则</h4><ul>
+<li>原子性（Atomicity）</li>
+<li>一致性（Consistency）</li>
+<li>隔离性（Isolation）</li>
+<li>持久性（Durability）</li>
+</ul>
+<h3 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h3><ul>
+<li>即NoSQL（not only SQL），非关联型的</li>
+<li>强调Key-Value的方式存储和文档数据库的优点</li>
+<li>不遵循ACID原则</li>
+</ul>
+<h3 id="数据库分类"><a href="#数据库分类" class="headerlink" title="数据库分类"></a>数据库分类</h3><h4 id="常用的关系型数据库"><a href="#常用的关系型数据库" class="headerlink" title="常用的关系型数据库"></a>常用的关系型数据库</h4><ul>
+<li>Oracle</li>
+<li>Microsoft SQL Server</li>
+<li>MySQL</li>
+<li>SQLite</li>
+<li>DB2</li>
+<li>Microsoft Access</li>
+</ul>
+<h4 id="常用的非关系型数据库"><a href="#常用的非关系型数据库" class="headerlink" title="常用的非关系型数据库"></a>常用的非关系型数据库</h4><ul>
+<li>Redis</li>
+<li>MongoDB</li>
+<li>Memcached</li>
+</ul>
+<p>数据库排名：<a target="_blank" rel="noopener" href="https://db-engines.com/en/ranking">https://db-engines.com/en/ranking</a></p>
+<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><p><code>mysql --help</code></p>
+<h3 id="数据库的连接"><a href="#数据库的连接" class="headerlink" title="数据库的连接"></a>数据库的连接</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 连接数据库</span><br><span class="line">mysql -uroot -p123456   </span><br><span class="line"></span><br><span class="line"># 修改用户密码</span><br><span class="line">update mysql.user set authentication_string=password(&#x27;123456&#x27;) where user=&#x27;root&#x27; and Host=&#x27;localhost&#x27;;  </span><br><span class="line"></span><br><span class="line"># 刷新权限</span><br><span class="line">flush privileges;   </span><br><span class="line"></span><br><span class="line"># 退出</span><br><span class="line">QUIT  </span><br></pre></td></tr></table></figure>
+
+<h3 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 创建数据库</span><br><span class="line">CREATE DATABASE [if not exists] 数据库名;</span><br><span class="line"></span><br><span class="line"># 删除数据库</span><br><span class="line">drop database [if exists] &lt;数据库名&gt;;</span><br><span class="line"></span><br><span class="line"># 使用数据库</span><br><span class="line">use demo;</span><br><span class="line"></span><br><span class="line">--  如果表名或者字段名是一个特殊字符，就需要带``</span><br><span class="line">use `use`;</span><br><span class="line"></span><br><span class="line"># 查看数据库</span><br><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">tinyint(m)</td>
+<td align="center">1个字节 范围(-128~127)</td>
+</tr>
+<tr>
+<td align="center">smallint(m)</td>
+<td align="center">2个字节 范围(-32768~32767)</td>
+</tr>
+<tr>
+<td align="center">mediumint(m)</td>
+<td align="center">3个字节 范围(-8388608~8388607)</td>
+</tr>
+<tr>
+<td align="center">int(m)</td>
+<td align="center">4个字节 范围(-2147483648~2147483647)</td>
+</tr>
+<tr>
+<td align="center">bigint(m)</td>
+<td align="center">8个字节 范围(+-9.22*10的18次方)</td>
+</tr>
+</tbody></table>
+<p>取值范围如果加了unsigned，则最大值翻倍</p>
+<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">float(m,d)</td>
+<td align="center">单精度浮点型 8位精度(4字节) m总个数，d小数位</td>
+</tr>
+<tr>
+<td align="center">double(m,d)</td>
+<td align="center">双精度浮点型 16位精度(8字节) m总个数，d小数位</td>
+</tr>
+</tbody></table>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CHAR</td>
+<td align="center">定长字符串</td>
+</tr>
+<tr>
+<td align="center">VARCHAR</td>
+<td align="center">变长字符串</td>
+</tr>
+<tr>
+<td align="center">TINYBLOB</td>
+<td align="center">不超过 255 个字符的二进制字符串</td>
+</tr>
+<tr>
+<td align="center">TINYTEXT</td>
+<td align="center">短文本字符串</td>
+</tr>
+<tr>
+<td align="center">BLOB</td>
+<td align="center">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td align="center">BLOB</td>
+<td align="center">长文本数据</td>
+</tr>
+<tr>
+<td align="center">MEDIUMBLOB</td>
+<td align="center">二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td align="center">MEDIUMTEXT</td>
+<td align="center">中等长度文本数据</td>
+</tr>
+<tr>
+<td align="center">LONGBLOB</td>
+<td align="center">二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td align="center">LONGTEXT</td>
+<td align="center">极大文本数据</td>
+</tr>
+</tbody></table>
+<h4 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h4><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">格式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DATE</td>
+<td align="center">YYYY-MM-DD</td>
+</tr>
+<tr>
+<td align="center">TIME</td>
+<td align="center">HH:MM:SS</td>
+</tr>
+<tr>
+<td align="center">YEAR</td>
+<td align="center">YYYY</td>
+</tr>
+<tr>
+<td align="center">DATETIME</td>
+<td align="center">YYYY-MM-DD HH:MM:SS</td>
+</tr>
+<tr>
+<td align="center">TIMESTAMP</td>
+<td align="center">YYYYMMDD HHMMSS</td>
+</tr>
+</tbody></table>
+<h4 id="定点数"><a href="#定点数" class="headerlink" title="定点数"></a>定点数</h4><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">decimal(m,d)</td>
+<td align="center">参数m&lt;65 是总个数，d&lt;30且 d&lt;m 是小数位</td>
+</tr>
+</tbody></table>
+<h4 id="其他数据类型"><a href="#其他数据类型" class="headerlink" title="其他数据类型"></a>其他数据类型</h4><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BINARY</td>
+<td align="center">类似Char的二进制存储，特点是插入定长不足补0</td>
+</tr>
+<tr>
+<td align="center">VARBINARY</td>
+<td align="center">类似VarChar的变长二进制存储，特点是定长不补0</td>
+</tr>
+<tr>
+<td align="center">ENUM</td>
+<td align="center">最大可达65535个不同的枚举值</td>
+</tr>
+<tr>
+<td align="center">SET</td>
+<td align="center">最大可达64个不同的值</td>
+</tr>
+<tr>
+<td align="center">Geometry</td>
+<td align="center">经纬度 not null</td>
+</tr>
+<tr>
+<td align="center">Point</td>
+<td align="center">简单点</td>
+</tr>
+<tr>
+<td align="center">LineString</td>
+<td align="center">简单线</td>
+</tr>
+<tr>
+<td align="center">MultiLineString</td>
+<td align="center">多线</td>
+</tr>
+<tr>
+<td align="center">Polygon</td>
+<td align="center">简单面</td>
+</tr>
+<tr>
+<td align="center">GeometryCollection</td>
+<td align="center">任何几何集合</td>
+</tr>
+</tbody></table>
+<h4 id="数据类型的属性"><a href="#数据类型的属性" class="headerlink" title="数据类型的属性"></a>数据类型的属性</h4><table>
+<thead>
+<tr>
+<th align="center">MySQL关键字</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">NULL</td>
+<td align="center">数据列可包含NULL值</td>
+</tr>
+<tr>
+<td align="center">NOT NULL</td>
+<td align="center">数据列不允许包含NULL值</td>
+</tr>
+<tr>
+<td align="center">DEFAULT</td>
+<td align="center">默认值</td>
+</tr>
+<tr>
+<td align="center">PRIMARY KEY</td>
+<td align="center">主键</td>
+</tr>
+<tr>
+<td align="center">AUTO_INCREMENT</td>
+<td align="center">自动递增，适用于整数类型</td>
+</tr>
+<tr>
+<td align="center">UNSIGNED</td>
+<td align="center">无符号</td>
+</tr>
+<tr>
+<td align="center">character_set_name</td>
+<td align="center">指定一个字符集</td>
+</tr>
+</tbody></table>
+<h3 id="字段属性"><a href="#字段属性" class="headerlink" title="字段属性"></a><strong>字段属性</strong></h3><ul>
+<li><p>Unsigned：</p>
+<ul>
+<li>无符号的整数</li>
+<li>声明了该列不能声明为负数</li>
+</ul>
+</li>
+<li><p>zerfill:</p>
+<ul>
+<li>0填充</li>
+<li>不足的位数，使用0来填充。例如：<code>5 &gt; 005</code></li>
+</ul>
+<p>``</p>
+</li>
+<li><p>自增（auto_increment）：</p>
+<ul>
+<li>通常理解为自增，自动在上一条记录的基础上+1（默认）</li>
+<li>通常用来设置唯一主键（index），必须是整数类型</li>
+<li>可以自定义设置主键自增的<strong>起始值</strong>和<strong>步长</strong></li>
+</ul>
+<p>****</p>
+</li>
+<li><p>默认：</p>
+<ul>
+<li>设置默认的值</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据表的操作"><a href="#数据表的操作" class="headerlink" title="数据表的操作"></a>数据表的操作</h3><p>创建MySQL数据表需要以下信息：</p>
+<ul>
+<li>表名</li>
+<li>表字段名</li>
+<li>定义每个表字段</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 创建数据表</span><br><span class="line">CREATE TABLE table_name (column_name column_type);</span><br><span class="line"></span><br><span class="line"># 删除数据表</span><br><span class="line">DROP TABLE [IF EXISTS] table_name ;</span><br><span class="line"></span><br><span class="line"># 查看创建数据库的语句</span><br><span class="line">SHOW CREATE DATABASE 数据库名;</span><br><span class="line"></span><br><span class="line"># 查看数据表的定义语句</span><br><span class="line">SHOW CREATE TABLE 表名;</span><br><span class="line"></span><br><span class="line"># 修改表名</span><br><span class="line">ALTER TABLE 旧表名 RENAME AS 新表名;</span><br><span class="line"></span><br><span class="line"># 删除表字段</span><br><span class="line">ALTER TABLE 表名 DROP 字段名;</span><br><span class="line"></span><br><span class="line"># 增加表字段</span><br><span class="line">ALTER TABLE 表名 ADD 字段名 列属性;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据列的编辑"><a href="#数据列的编辑" class="headerlink" title="数据列的编辑"></a>数据列的编辑</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 添加列</span><br><span class="line">alter table 表名 add column 列名 varchar(30); </span><br><span class="line"></span><br><span class="line"># 删除列</span><br><span class="line">alter table 表名 drop column 列名;</span><br><span class="line"></span><br><span class="line"># 查看列</span><br><span class="line">desc 表名; </span><br><span class="line"></span><br><span class="line"># 修改列名MySQL</span><br><span class="line">alter table bbb change nnnnn hh int;</span><br><span class="line"># SQLServer</span><br><span class="line">exec sp_rename&#x27;t_student.name&#x27;,&#x27;nn&#x27;,&#x27;column&#x27;;  </span><br><span class="line"># Oracle</span><br><span class="line">lter table bbb rename column nnnnn to hh int;</span><br><span class="line"></span><br><span class="line"># 修改列属性</span><br><span class="line">alter table t_book modify name varchar(22);</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据表的编辑"><a href="#数据表的编辑" class="headerlink" title="数据表的编辑"></a>数据表的编辑</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 查看表的所有信息</span><br><span class="line">show create table 表名;</span><br><span class="line"></span><br><span class="line"># 修改表名</span><br><span class="line">alter table t_book rename to bbb;</span><br><span class="line"></span><br><span class="line"># 插入数据</span><br><span class="line">INSERT INTO table_name ( field1, field2,...fieldN )</span><br><span class="line">                       VALUES</span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><h4 id="所有的select-关键字"><a href="#所有的select-关键字" class="headerlink" title="所有的select 关键字 "></a>所有的select 关键字 <a id="&#x6240;&#x6709;&#x7684;select-&#x5173;&#x952E;&#x5B57;"></a></h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">select distinct *  from table_name</span><br><span class="line">			 where </span><br><span class="line">			 group by </span><br><span class="line">			 having </span><br><span class="line">   		 order by</span><br><span class="line">			 limit a,b</span><br><span class="line"></span><br><span class="line">必须存在的有: </span><br><span class="line">select </span><br><span class="line">			* 可以换成任意的一个或多个字段名称  </span><br><span class="line">			from</span><br><span class="line">	    table_name</span><br><span class="line">#注意: 关键字的顺序是固定的不能随意变化</span><br></pre></td></tr></table></figure>
+
+<h4 id="where-条件"><a href="#where-条件" class="headerlink" title="where 条件 "></a>where 条件 <a id="where-&#x6761;&#x4EF6;"></a></h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">select * from  table_name</span><br><span class="line">where </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">where 后面可以是 </span><br><span class="line"></span><br><span class="line">1.比较运算符 </span><br><span class="line">	&gt;  &lt;  &gt;=  &lt;=  =  != </span><br><span class="line">	</span><br><span class="line">2.成员运算符</span><br><span class="line">	in  not in    后面是一个set</span><br><span class="line"></span><br><span class="line">3.逻辑运算符 </span><br><span class="line">	and or not 	</span><br><span class="line">	not 要放在表达式的前面   and 和 or 放到两个表达式中间 </span><br><span class="line">4.模糊查询 </span><br><span class="line">	like </span><br><span class="line">	% 表示 任意个数的任意字符</span><br><span class="line">	_ 表示一个任意字符</span><br></pre></td></tr></table></figure>
+
+<h4 id="distinct-去除重复记录"><a href="#distinct-去除重复记录" class="headerlink" title="distinct 去除重复记录 "></a>distinct 去除重复记录 <a id="distinct-&#x53BB;&#x9664;&#x91CD;&#x590D;&#x8BB0;&#x5F55;"></a></h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">select distinct * from stu; </span><br><span class="line"># 注意仅当查询结果中所有字段全都相同时 才算重复的记录</span><br></pre></td></tr></table></figure>
+
+<h4 id="指定字段"><a href="#指定字段" class="headerlink" title="指定字段 "></a>指定字段 <a id="&#x6307;&#x5B9A;&#x5B57;&#x6BB5;"></a></h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">1.星号表示所有字段</span><br><span class="line">2.手动指定需要查询的字段</span><br><span class="line">3.还可也是四则运算   </span><br><span class="line">4.聚合函数 </span><br></pre></td></tr></table></figure>
+
+<h4 id="取别名"><a href="#取别名" class="headerlink" title="取别名 "></a>取别名 <a id="&#x53D6;&#x522B;&#x540D;"></a></h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">select name,math+english as 总分 from stu where name = &quot;赵云&quot;;</span><br><span class="line"></span><br><span class="line">as 可以省略 </span><br></pre></td></tr></table></figure>
+
+<h4 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">语法:</span><br><span class="line">select xxx from table_name group by 字段名称;</span><br><span class="line"></span><br><span class="line">需求:统计每个性别有几个人 </span><br><span class="line">select sex,count(*) from emp group by sex;</span><br><span class="line"></span><br><span class="line">需求: 查询每个性别有几个 并且显示名字</span><br><span class="line">select name,sex,count(*) from emp group by sex;</span><br><span class="line"></span><br><span class="line"># mysql 5.6下  查询的结果是name仅显示该分组下的第一个  </span><br><span class="line"># 5.7以上则直接报错 ,5.6也可以手动开启这个功能  </span><br><span class="line"></span><br><span class="line"># 我们可以用group_concat 将分组之外的字段 做一个拼接 ,但是这是没有意义</span><br><span class="line"># 如果要查询某个性别下的所有信息 直接使用where 即可  </span><br><span class="line"></span><br><span class="line">#结论: 只有出现在了group by 后面得字段才能出现在select的后面</span><br></pre></td></tr></table></figure>
+
+<h4 id="having"><a href="#having" class="headerlink" title="having "></a>having <a id="having"></a></h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 用于过滤,但是与where不同的是,having使用在分组之后</span><br><span class="line"></span><br><span class="line"># 求出平均工资大于500的部门信息 </span><br><span class="line">select dept,avg(salary) from emp  group by dept having avg(salary) &gt; 5000;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#查询 部门人数少于3的 部门名称 人员名称 人员个数</span><br><span class="line"></span><br><span class="line">select dept,group_concat(name),count(*) from emp group by dept having count(*) &lt; 3;</span><br></pre></td></tr></table></figure>
+
+<h4 id="limit"><a href="#limit" class="headerlink" title="limit "></a>limit <a id="limit-&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x6570;&#x636E;&#x5206;&#x9875;"></a></h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 用于限制要显示的记录数量</span><br><span class="line"></span><br><span class="line">语法1:</span><br><span class="line">select * from table_name limit 个数;</span><br><span class="line">语法2:</span><br><span class="line">select * from table_name limit 起始位置,个数;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查询前三条 </span><br><span class="line">select * from  emp limit 3;</span><br><span class="line"></span><br><span class="line"># 从第三条开始 查询3条   3-5</span><br><span class="line">select * from  emp limit 2,3;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#  注意:起始位置 从0开始</span><br><span class="line"></span><br><span class="line"># 经典的使用场景:分页显示  </span><br><span class="line">1.每一页显示的条数   a  = 3</span><br><span class="line">2.明确当前页数   b = 2</span><br><span class="line">3.计算起始位置   c = (b-1) * a      </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select * from emp limit 0,3;</span><br><span class="line">select * from emp limit 3,3;</span><br><span class="line">select * from emp limit 6,3;</span><br></pre></td></tr></table></figure>
+
+<h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># in 关键字子查询</span><br><span class="line">当内层查询 (括号内的) 结果会有多个结果时, 不能使用 = 必须是in ,另外子查询必须只能包含一列数据</span><br><span class="line"></span><br><span class="line">1.查询出 平均年龄 大于25的部门编号</span><br><span class="line"></span><br><span class="line">select  dept_id from emp  group by  dept_id  having avg(age) &gt; 25;</span><br><span class="line"></span><br><span class="line">2.再根据编号查询部门的名称  </span><br><span class="line"></span><br><span class="line">select name from  dept where id in (select  dept_id from emp  group by  dept_id  having avg(age) &gt; 25);</span><br><span class="line"></span><br><span class="line">子查询的思路:</span><br><span class="line">1.要分析 查到最终的数据 到底有哪些步骤 </span><br><span class="line">2.根据步骤写出对应的sql语句</span><br><span class="line">3.把上一个步骤的sql语句丢到下一个sql语句中作为条件 </span><br><span class="line"></span><br><span class="line"># exists 关键字子查询</span><br><span class="line">当内层查询 有结果时 外层才会执行</span><br><span class="line"></span><br><span class="line">select* from dept where exists (select * from dept where id = 1);</span><br><span class="line"> # 由于内层查询产生了结果 所以 执行了外层查询dept的所有数据 </span><br></pre></td></tr></table></figure>
+
+<h4 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h4><figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 笛卡尔积查询</span><br><span class="line">select * from   table1,table2,......</span><br><span class="line"># 笛卡尔积查询的结果会出现大量的错误数据即,数据关联关系错误!</span><br><span class="line">添加过滤条件 从表外键值 等于 主表的主键值</span><br><span class="line"></span><br><span class="line"># 内连接查询:</span><br><span class="line">select * from  table1 inner join table2;</span><br><span class="line"></span><br><span class="line"># 左外连接查询</span><br><span class="line">左边的表无论是否能够匹配都要完整显示</span><br><span class="line">右边的仅展示匹配上的记录</span><br><span class="line">select * from emp left join dept on dept_id = dept.id;</span><br><span class="line">注意: 在外连接查询中不能使用where 关键字 必须使用on专门来做表的对应关系 </span><br><span class="line"></span><br><span class="line"># 右外连接查询</span><br><span class="line">右边的表无论是否能够匹配都要完整显示</span><br><span class="line">左边的仅展示匹配上的记录</span><br><span class="line">select * from emp right join dept on dept_id = dept.id;</span><br><span class="line"></span><br><span class="line"># 全外连接查询</span><br><span class="line">无论是否匹配成功 两边表的数据都要全部显示</span><br><span class="line">需求:查询所有员工与所有部门的对应关系  </span><br><span class="line">select * from emp full join dept on dept_id = dept.id;</span><br><span class="line"></span><br><span class="line">注意:mysql不支持全外连接 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们可以将 左外连接查询的结果  和 右外连接查询的结果 做一个合并  </span><br><span class="line">select * from emp left join dept on dept_id = dept.id</span><br><span class="line">union</span><br><span class="line">select * from emp right join dept on dept_id = dept.id;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">union的用法:</span><br><span class="line">select * from emp</span><br><span class="line">union </span><br><span class="line">select * from emp;</span><br><span class="line"></span><br><span class="line"># union将自动去除重复的记录  </span><br><span class="line"># union all 不去重复 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select sex,name from emp </span><br><span class="line">union </span><br><span class="line">select * from dept;</span><br><span class="line"># 注意  union 必须保证两个查询结果 列数相同  一般用在多个结果结构完全一致时</span><br></pre></td></tr></table></figure>
+
+<h2 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h2><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/tutorial.html">https://dev.mysql.com/doc/refman/5.7/en/tutorial.html</a></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">xxynly</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.19970310.xyz/2021/04/20/认识数据库/">http://blog.19970310.xyz/2021/04/20/认识数据库/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.19970310.xyz">小夏要努力呀</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mysql/">mysql</a></div><div class="post-qr-code"><div class="post-qr-code-item"><img class="post-qr-code__img" src="https://i.loli.net/2021/04/16/WSt8kExyG62YqJw.jpg"><div class="post-qr-code__desc">公众号</div></div></div><nav id="pagination"><div class="next-post pull-right"><a href="/2021/03/21/web%E8%BF%90%E8%A1%8C%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"><span>web一：web运行基础环境搭建</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="disqus_thread"></div><script>var unused = null;
+var disqus_config = function () {
+  this.page.url = 'http://blog.19970310.xyz/2021/04/20/%E8%AE%A4%E8%AF%86%E6%95%B0%E6%8D%AE%E5%BA%93/';
+  this.page.identifier = '2021/04/20/认识数据库/';
+  this.page.title = '认识数据库';
+}
+var d = document, s = d.createElement('script');
+s.src = "https://" + 'xxynly' +".disqus.com/embed.js";
+s.setAttribute('data-timestamp', '' + +new Date());
+(d.head || d.body).appendChild(s);</script><script id="dsq-count-scr" src="https://xxynly.disqus.com/count.js" async></script></div></div><footer class="footer-bg" style="background-image: url(https://i.loli.net/2021/04/15/2kp5IPJ71sMSTqu.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By xxynly</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

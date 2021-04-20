@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.19970310.xyz/2021/04/20/%E8%AE%A4%E8%AF%86%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    
+    <lastmod>2021-04-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.19970310.xyz/2021/03/07/1.SQL%E6%B3%A8%E5%85%A5(%E6%95%B0%E5%AD%97%E5%9E%8B)/</loc>
     
     <lastmod>2021-03-31</lastmod>
@@ -102,7 +109,7 @@
 
   <url>
     <loc>http://blog.19970310.xyz/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -110,70 +117,70 @@
   
   <url>
     <loc>http://blog.19970310.xyz/tags/web/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/tags/SQL/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/tags/linux/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/tags/nginx/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/tags/php/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/tags/mysql/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/tags/ftp/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/tags/email/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/tags/google/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -182,28 +189,28 @@
   
   <url>
     <loc>http://blog.19970310.xyz/categories/SQL/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/categories/%E4%BF%A1%E5%AE%89%E4%B9%8B%E8%B7%AF/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://blog.19970310.xyz/categories/WEB%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2021-04-16</lastmod>
+    <lastmod>2021-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
